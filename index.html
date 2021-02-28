@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        console.log("Hello World");
+
+        //creating a function as a variable
+        let printMe = function(x){
+            console.log("Hello " + x);
+            console.log(`hello ${x}`);
+            document.write("<h1>Hello " + x + "!</h1>");
+        }
+        printMe("Kamal"); 
+
+
+        var person = {
+            name: "Sunil",
+            age: 55,
+            printName: function(){
+                console.log(this.name);
+            }
+        }
+
+        person.printName()
+
+        //using this keyword
+        let student = {
+            first: "Kamal",
+            second: "Perera",
+            age: 44,
+            welcome: function(){
+                return `${this.first} is ${this.age} years old`;
+            }
+        };
+
+        document.write(student.welcome());
+
+        var sayHello = function(){
+            return function(){
+                console.log("Lab recording!");
+            } 
+        }
+
+        function executor(func){
+            var executor = func();
+            executor();
+            
+        }
+
+        executor(sayHello);
+
+
+        //question 03
+        var vehicleName = 'Toyota';
+
+        function printName(){
+            console.log(this.vehicleName);
+        }
+
+        printName();
+
+        var car = {
+            vehicleName : 'Nissan',
+            print:function () {
+                return printName;
+            }
+        }
+        
+        var execute = car.print();
+        execute(); //still this prints the name as Toyota,not as Nissan
+
+        //To print the object's name we have to use bind function
+
+        var execute = car.print();
+        execute = execute.bind(car);
+        execute();
+
+
+        // window.vehicleName = "Toyota";
+
+        // let printVehicleName = function(vname){
+        //     document.write(`<h1>${vname}</h1>`);
+        // }
+
+        // printVehicleName(window.vehicleName);
+
+        // let vehicle = {
+        //     vehicleName: "Nissan",
+        //     getVehicleName : function(){
+        //         printVehicleName(this.vehicleName);
+        //     }
+        // }
+
+        // this.vehicleName = "Audi";
+        
+        // vehicle.getVehicleName();
+        // printVehicleName(window.vehicleName);
+
+
+        // Question 4
+        function taxCalculator(percentage){
+            return function(amount){
+                return amount * percentage;
+            }
+        }
+
+        var calculator = taxCalculator(.12);
+        console.log(calculator(200)); // we can use this approach to information hiding
+
+
+        // Question 5
+        // fetch('http://example.com/movies.json')
+        // .then(response => response.json())
+        // .then(data => console.log(data));
+        fetch('https://jsonplaceholder.typicode.com/posts').then(function(response){
+            return response.json();
+        }).then(function(data){
+            console.log(data);
+        });
+
+        console.log('here');
+
+    </script>
+</body>
+</html>
