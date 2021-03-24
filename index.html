@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script type="text/javascript">
+    // Question 01
+    //JavaScript is single threaded, therefore no one can interrupt the main.
+
+
+
+    setTimeout(function (){
+        console.log("Executed after 2 s");
+    },2000);
+
+    console.log("Hello");
+
+
+    // let getValue = function () {
+    //     let value = 0;
+    //     setTimeout(function () {
+    //         value = 10;
+    //         console.log(value);
+    //     },2000);
+
+        //console.log(value);
+    //};
+
+
+    // console.log(getValue()); //returns undefined
+
+    // let printMe = function (value) {
+    //     console.log(value);
+    // };
+    //
+    let getValue = function (callback) {
+        let value = 0;
+        setTimeout(function () {
+            value = 10;
+            callback(value);
+        },2000);
+        return value;
+    };
+    //
+    // console.log(getValue(printMe));
+
+    //promises
+    let getValue = function () {
+        let value = 0;
+        return new Promise(function(resolve,reject){
+            value = 10;
+            resolve(value);
+        },2000);
+    };
+
+    // getValue().then(function (value) {
+    //     console.log(value);
+    // });
+    //
+    // console.log("I trusted you!");
+
+    //Chaining promises
+    // getValue().then(function (value) {
+    //     return value + 100;
+    // }).then(function (value) {
+    //     console.log(value);
+    //     return(4,"Hello");
+    // }).then(function (value, msg) {
+    //     value += 100;
+    //     console.log(value);
+    // });
+    //
+    // console.log('This typed after');
+
+    //Question 02
+    //vehicle class
+    // function Vehicle(type) {
+    //     this.type = type;
+    //     Vehicle.VehicleCount++;
+    // }
+    //
+    // Vehicle.VehicleCount = 0;
+    //
+    // console.log(Vehicle.VehicleCount)
+    // const vehicle = new Vehicle("Toyota");
+    // console.log(vehicle.type);
+    // console.log(Vehicle.VehicleCount);
+    //
+    // Vehicle.prototype.drive = function () {
+    //     console.log(this.type + " is driving!");
+    // }
+    //
+    // //extending the vehicle class
+    // function Car(type){
+    //     Vehicle.call(this,type);
+    // }
+    // Car.prototype = Object.create(Vehicle.prototype);
+    // //set the constructor
+    // Car.prototype.constructor = Car;
+    //
+    // //Adding new method to car class(child class of vehicle)
+    // Car.prototype.balanceWheels = function () {
+    //     console.log("Wheels are balanced!");
+    // };
+    //
+    // const car = new Car("Honda");
+    // car.drive();
+    // car.balanceWheels();
+    //
+    // vehicle.drive();
+    // console.log(Vehicle.VehicleCount);
+    // console.log(car.type);
+
+
+
+//Weekend Lab
+    // function getValue() {
+    //     let value=0;
+    //     setTimeout(function() {
+    //         value = 10;
+    //         console.log(value + " after 1 sec");
+    //     },1000);
+    //     return value;
+    // }
+    //
+    // console.log(getValue());
+
+    // //using callback
+    // function getValue(callback) {
+    //     let value=0;
+    //     setTimeout(function() {
+    //         value = 10;
+    //         //This is the anonymous function defined in line number 41
+    //         callback(value);
+    //     },1000);
+    // }
+    //
+    // function getNewValue(value, callback) {
+    //     setTimeout(function() {
+    //         //This is the anonymous function defined in line number 42
+    //         callback(value * 100);
+    //     },1000);
+    // }
+    //
+    // //calling the function defined at the line number 23
+    // getValue(function (value) {
+    //     //Calling the function defined at the line number 33
+    //     getNewValue(value, function (newValue) {
+    //         console.log(newValue);
+    //     })
+    // });
+
+    //-------------------Using promise-------------------
+    let promise = new Promise(function (resolve, reject) {
+        resolve();
+        reject();
+    });
+
+    function getValue() {
+        let value=0;
+        //resolve is for success
+        //reject is for error
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                value = 10;
+                resolve(value);
+            }, 1000);
+        });
+    }
+
+    function getNewValue(value){
+        return new Promise(function (resolve, reject) {
+            setTimeout(function () {
+                resolve(value * 100);
+            }, 1000);
+        });
+    }
+
+    //Arrow function
+    // function getNewValue(value){
+    //     return new Promise((resolve, reject) => {
+    //         setTimeout(function () {
+    //             resolve(value * 100);
+    //         }, 1000);
+    //     });
+    // }
+
+    function setValue(value){
+        return value + 1999;
+    }
+
+    async function print() {
+        let value = await getValue();
+        try {
+            value = await getNewValue(value);
+        }catch (e) {
+            //do
+        }
+        value = setValue(value);
+        console.log(value);
+    }
+
+    print().then(function(value){
+        console.log(value);
+    })
+
+    //arrow function
+    //print().then(value => console.log(value));
+
+
+    //promise chaining
+    // getValue().then(function (value) {
+    //     return getNewValue(value)
+    // }).then(function (value) {
+    //     return setValue(value);
+    // }).then(function (value) {
+    //     console.log(value);
+    // });
+
+
+    //It can automatically return the value as well
+    print().then(value => console.log(value))
+    .then(value => console.log(value));
+
+    const persons = {
+        organization: 'Science',
+        people : ['Jane','John'],
+        print: () => {
+            console.log(this)
+            this.people.forEach(value => {
+                console.log(value, this.organization)
+            });
+        }
+    }
+
+    persons.print();
+
+
+    //Session
+
+
+
+</script>
+</body>
+</html>
