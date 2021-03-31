@@ -1,0 +1,19 @@
+ {
+  "name": "lab4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NishanNiriella/AF_Labs.git"
+  },
+  "author": "Nishan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NishanNiriella/AF_Labs/issues"
+  },
+  "homepage": "https://github.com/NishanNiriella/AF_Labs#readme"
+}
