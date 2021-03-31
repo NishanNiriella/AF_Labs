@@ -88,6 +88,8 @@ readStream.pipe(writeStream);
 
 //Print cpu details
 console.log(os.arch());
+console.log(os.cpus());
+console.log(os.totalmem());
 
 //Handle read end and write close events
 //Handle PUT request return 'PUT request received with : {request data}
