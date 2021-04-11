@@ -1,0 +1,79 @@
+var helpers = require("./node_modules/@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+helpers.prelude(module);
+try {
+  var _parcelHelpers = require("@parcel/transformer-js/lib/esmodule-helpers.js");
+  _parcelHelpers.defineInteropFlag(exports);
+  var _react = require('react');
+  var _reactDefault = _parcelHelpers.interopDefault(_react);
+  var _jsxFileName = "F:\\BSC(Hons)\\Year 3\\Semester 1\\Application Frameworks\\Week 7\\lab7\\App.jsx";
+  const posts = [{
+    id: 1,
+    name: 'React',
+    description: 'Best UI library'
+  }, {
+    id: 2,
+    name: 'Node',
+    description: 'Server side JS'
+  }];
+  class App extends _react.Component {
+    constructor(props) {
+      super(props);
+    }
+    /*render() {*/
+    /*return (*/
+    /*<h1>Hello to React World</h1>*/
+    /*);*/
+    /*}*/
+    /*render() {*/
+    /*return (*/
+    /*<div>*/
+    /*<table>*/
+    /*<thead>*/
+    /*<tr>*/
+    /*<th>ID</th>*/
+    /*<th>Name</th>*/
+    /*<th>Description</th>*/
+    /*</tr>*/
+    /*</thead>*/
+    /*<tbody>*/
+    /*{posts.map(post => {*/
+    /*return <tr key={post.id.toString()}>*/
+    /*<td>{post.id}</td>*/
+    /*<td>{post.name}</td>*/
+    /*<td>{post.description}</td>*/
+    /*</tr>*/
+    /*})}*/
+    /*</tbody>*/
+    /*</table>*/
+    /*</div>*/
+    /*);*/
+    /*};*/
+    render() {
+      return (
+        /*#__PURE__*/_reactDefault.default.createElement("div", {
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 55,
+            columnNumber: 13
+          }
+        }, /*#__PURE__*/_reactDefault.default.createElement(Posts, {
+          posts: posts,
+          __self: this,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 56,
+            columnNumber: 17
+          }
+        }))
+      );
+    }
+  }
+  exports.default = App;
+  helpers.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
