@@ -1,0 +1,25 @@
+{
+  "name": "lab05",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NishanNiriella/AF_Labs.git"
+  },
+  "author": "Nishan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NishanNiriella/AF_Labs/issues"
+  },
+  "homepage": "https://github.com/NishanNiriella/AF_Labs#readme",
+  "dependencies": {
+    "@koa/router": "^10.0.0",
+    "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0",
+    "uuid": "^8.3.2"
+  }
+}
