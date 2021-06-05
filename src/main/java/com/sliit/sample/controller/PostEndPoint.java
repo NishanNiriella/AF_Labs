@@ -32,4 +32,10 @@ public class PostEndPoint {
         post.setDescription(postDto.getDescription());
         return postApi.addPost(post);
     }
+
+    @DeleteMapping("/{id}")
+    public void deletePost(@PathVariable("id") String id){
+        postApi.deletePost(id);
+    }
+
 }

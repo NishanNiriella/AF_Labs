@@ -20,6 +20,12 @@ public class PostApi {
     public Post addPost(Post post) {
         post.setId(UUID.randomUUID().toString());
         posts.put(post.getId(), post);
+        System.out.println("Done");
         return post;
+    }
+
+    public void deletePost(String id) {
+        posts.remove(id);
+        System.out.println("Post Deleted" + id);
     }
 }
