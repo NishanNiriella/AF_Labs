@@ -28,4 +28,13 @@ public class PostApi {
         posts.remove(id);
         System.out.println("Post Deleted" + id);
     }
+
+    public Post updatePost(Post post) {
+        Post simplePost = new Post();
+        simplePost = this.posts.get(post.getId());
+
+        simplePost.setName(post.getName());
+        simplePost.setDescription(post.getDescription());
+        return simplePost;
+    }
 }
