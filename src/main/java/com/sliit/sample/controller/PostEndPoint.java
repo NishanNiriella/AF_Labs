@@ -33,17 +33,27 @@ public class PostEndPoint {
         return postApi.addPost(post);
     }
 
-    @DeleteMapping("/{id}")
-    public void deletePost(@PathVariable("id") String id) {
-        postApi.deletePost(id);
-    }
-
     @PutMapping("/{id}")
-    public Post updatePost(@RequestBody PostDto postDto, @PathVariable("id") String id) {
+    @ResponseStatus(HttpStatus.CREATED)
+    public Post addPost(@PathVariable String id, @RequestBody PostDto postDto) {
         Post post = new Post();
         post.setId(id);
         post.setName(postDto.getName());
         post.setDescription(postDto.getDescription());
-        return postApi.updatePost(post);
+        return postApi.update(post);
     }
+
+    @DeleteMapping("/delete/{id}")
+    public void deletePost(@PathVariable("id") String id) {
+        postApi.deletePost(id);
+    }
+
+//    @PutMapping("/{id}")
+//    public Post updatePost(@RequestBody PostDto postDto, @PathVariable("id") String id) {
+//        Post post = new Post();
+//        post.setId(id);
+//        post.setName(postDto.getName());
+//        post.setDescription(postDto.getDescription());
+//        return postApi.updatePost(post);
+//    }
 }
